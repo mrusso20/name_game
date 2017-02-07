@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hall of Fame</title>
+    </head>
+
+    <style>
+            h1 {text-align:center;}
+            p {text-align:center;}
+            .fame {text-align: center; list-style-position:inside;}
+    </style>
+
+    <body bgcolor="#E6E6FA">
+    <h1>Top 10 High Scores</h1><br><br>
+
+        <ol class = "fame">
+            {% for score in scoreboard %}
+                <li>{{ score }}</li>
+            {% endfor %}
+        </ol>
+
+    <form action="{% url 'home' %}" method="GET">
+        <p>
+            <input type="submit" value="Go Home" name="home"><br><br>
+        </p>
+    </form>
+
+    </body>
+</html>

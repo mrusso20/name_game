@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Practice Mode</title>
+    </head>
+
+    <style>
+        h1 {text-align:center;}
+        p {text-align:center;}
+    </style>
+    <body bgcolor="#E6E6FA">
+        <h1>
+            Practice Mode
+        </h1>
+        {% load static %}
+        <div id="wrapper" style="width:100%; text-align:center">
+            {% for picture in pictures %}
+                <img src="{% static picture.1 %}"/><br>
+                {{ picture.0 }}<br><br>
+            {% endfor %}
+        </div>
+    </body>
+</html>

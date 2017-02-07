@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <style>
+        h1 {text-align:center;}
+        p {text-align:center;}
+        .improvements {text-align: center; list-style-position:inside;}
+    </style>
+    <body bgcolor="#E6E6FA">
+        <h1>
+            Challenge Completed!<br>
+            You got {{ correct }} out of {{ total }} ({{ percent }}) correct! <br><br>
+
+            User: {{ final_user }}<br>
+            Current Score: {{ final_round_score }}<br>
+            Personal High Score:{{ final_round_hscore }}<br><br>
+        </h1>
+        {% if wrong != '' %}
+            <p>
+                You might want to get to know these folks better:<br>
+            </p>
+            {% load static %}
+            <ul class = "improvements">
+                {% for person in wrong %}
+                    <img src="{% static person.1 %}"/><br>
+                    <a target="_blank" href={{ person.2 }}>{{ person.0 }}</a><br><br>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <p><a href="leaderboard">Hall of Fame</a><br><br></p>
+        <form action="{% url 'home' %}" method="GET">
+            <p>
+                <input type="submit" value="Start a New Challenge" name="restart"><br><br>
+            </p>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Easy Mode</title>
+    </head>
+
+    <style>
+        h1 {text-align:center;}
+        p {text-align:center;}
+    </style>
+    <body bgcolor="#E6E6FA">
+        <h1>
+            {{ outcome }}<br><br>
+
+            User: {{ user_person }}<br>
+            Current Score: {{ score }}<br>
+            Personal High Score:{{ hscore }}<br><br>
+        </h1>
+        {% load static %}
+        <div id="wrapper" style="width:100%; text-align:center">
+            <img src="{% static start_pic %}"/><br><br>
+        </div>
+        <form action="{% url 'next' %}" method="GET">
+            <p>
+                <input type="radio" value="{{ option1 }}"name="name_guess"> {{ option1 }}<br>
+                <input type="radio" value="{{ option2 }}"name="name_guess"> {{ option2 }}<br>
+                <input type="radio" value="{{ option3 }}"name="name_guess"> {{ option3 }}<br>
+                <input type="radio" value="{{ option4 }}"name="name_guess"> {{ option4 }}<br><br>
+
+                <input type="submit" value="Select" name="game"><br><br>
+                <input type="submit" value="Start Over" name="start_over"><br><br>
+                <input name="difficulty" value="{{ difficulty }}" type="hidden">
+                <input name="right_answer" value="{{ right_answer }}" type="hidden">
+                <input name="guessed" value="{{ guessed }}" type="hidden">
+                <input name="user_namer" value="{{ user_person }}" type="hidden">
+                <input name="blocker" value="{{ block_sel }}" type="hidden">
+                <input name="max_people" value="{{ max_people }}" type="hidden">
+            </p>
+        </form>
+    </body>
+</html>

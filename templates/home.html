@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+    <body bgcolor="#E6E6FA">
+        <form action="{% url 'game_start' %}" method="GET"><br><br>
+            Please enter your name: <input name="user_name" type="text"><br><br>
+            Please select a Block Number that you would like to quiz yourself on:<br><br>
+            <select name="block_pick">
+               <!-- {% for item in block_num %}
+                    <option value="{{ item }}"> {{ item }}</option>
+                {% endfor %}-->
+            <option value="Block 2">Block 2</option>-->
+            <option value="Block 3">Block 3</option>-->
+            <option value="Block 4">Block 4</option>-->
+            <option value="Block 6">Block 6</option>-->
+            </select><br><br>
+            <input type="radio" value="Easy" name="difficulty"> Easy
+            <input type="radio" value="Normal" name="difficulty" checked> Normal
+            <input type="radio" value="Hard" name="difficulty"> Hard<br><br>
+            Maximum People to Guess: <input type="text" name="max_people"><br><br>
+            <input type="submit" value="Begin" name="begin"><br><br>
+            <input type="submit" value="Practice" name="practice"><br><br>
+        </form>
+        <a href="leaderboard">Hall of Fame</a>
+    </body>
+</html>
